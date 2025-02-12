@@ -1,0 +1,11 @@
+- name: Create a temporary directory
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Create temp directory using mktemp
+      command: mktemp -d
+      register: temp_dir_out
+
+    - name: Debug temp_dir_out
+      debug:
+        var: temp_dir_out
